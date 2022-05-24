@@ -1,0 +1,188 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API for the PET application",
+        "title": "PET API",
+        "contact": {
+            "name": "API support",
+            "email": "edsonjaybcarreon@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:9000",
+    "basePath": "/",
+    "paths": {
+        "/change-password": {
+            "patch": {
+                "description": "Change the password of the user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Change the password of the user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Person"
+                        }
+                    }
+                }
+            }
+        },
+        "/persons": {
+            "get": {
+                "description": "Get all users from the database",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "person"
+                ],
+                "summary": "Get all users from the database",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Person"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/persons/:id": {
+            "get": {
+                "description": "Get user by its ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "person"
+                ],
+                "summary": "Get a user by its ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Person ID",
+                        "name": "person_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/signin": {
+            "post": {
+                "description": "Signs the user into the application",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Signs the user into the application",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Person"
+                        }
+                    }
+                }
+            }
+        },
+        "/signup": {
+            "post": {
+                "description": "Signs up the user to the application",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Signs up the user to the application",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Person"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Person": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "integer"
+                },
+                "displayPhoto": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "gender": {
+                    "type": "string"
+                },
+                "lastLogin": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "newPassword": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "personID": {
+                    "type": "integer"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "updatedBy": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

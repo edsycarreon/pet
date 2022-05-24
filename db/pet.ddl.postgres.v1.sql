@@ -38,6 +38,7 @@ INSERT INTO lu_status (code, description, sort_order) VALUES ('INA', 'Inactive',
 INSERT INTO lu_status (code, description, sort_order) VALUES ('DEL', 'Deleted', 3);
 INSERT INTO lu_status (code, description, sort_order) VALUES ('BAN', 'Banned', 4);
 INSERT INTO lu_status (code, description, sort_order) VALUES ('TIM', 'Timeout', 5);
+INSERT INTO lu_status (code, description, sort_order) VALUES ('PEN', 'Pending', 6);
 
 -- lu_gender
 CREATE TABLE lu_gender (
