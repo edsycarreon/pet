@@ -62,13 +62,13 @@ const getUserByID = async (req : express.Request, res : express.Response) => {
         res.send(status);
     });
 
-    const {rows} = user;
+    // const {rows} = user;
 
-    if(user.length <= 0) {
+    if(!user) {
         res.status(StatusCodes.NOT_FOUND);
         status = helper.getStatusCode(StatusCodes.NOT_FOUND.toString());
     }
-    const resUser = new Res(status, rows[0], 'user');
+    const resUser = new Res(status, user, 'user');
     res.send(resUser);
 }
   

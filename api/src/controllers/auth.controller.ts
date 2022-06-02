@@ -61,13 +61,13 @@ const signUp = async(req : express.Request, res : express.Response) => {
     });
 
     //Null check
-    if(user?.rows.length <= 0) {
+    if(!user) {
         res.status(StatusCodes.NOT_FOUND);
         status = helper.getStatusCode(StatusCodes.NOT_FOUND.toString());
     }
 
     //Finalize returned value
-    const resUser = new Res(status, helper.keysToCamel(user?.rows[0]), 'user');
+    const resUser = new Res(status, helper.keysToCamel(user), 'user');
     res.send(resUser);
 };
 
@@ -96,14 +96,14 @@ const signUp = async(req : express.Request, res : express.Response) => {
     });
 
     //Null check
-    if(credentials?.length <= 0) {
+    if(!credentials) {
         res.status(StatusCodes.UNAUTHORIZED);
         status = helper.getStatusCode(StatusCodes.UNAUTHORIZED.toString());
         res.send(status)
     }
 
     //Decrypt and compare password with bcrypt
-    const isPasswordMatched = await bcrypt.comparePassword(userParams.password, credentials[0].password);
+    const isPasswordMatched = await bcrypt.comparePassword(userParams.password, credentials.password);
 
     if(!isPasswordMatched) {
         res.status(StatusCodes.UNAUTHORIZED);
@@ -112,7 +112,7 @@ const signUp = async(req : express.Request, res : express.Response) => {
     }
 
     //Create access and refresh tokens
-    const serializedUser = { email: credentials[0].email, id: credentials[0].personId };
+    const serializedUser = { email: credentials.email, id: credentials.personId };
     const accessToken = auth.generateAccessToken(serializedUser);
     const refreshToken = auth.generateRefreshToken(serializedUser);
     const returnedTokend = { accessToken, refreshToken};

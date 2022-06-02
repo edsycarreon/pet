@@ -56,7 +56,7 @@ const getUsers = async () : Promise<any> => {
     [id])
     .catch(e => {throw e});
 
-    return helper.keysToCamel(result);
+    return helper.keysToCamel(result.rows[0]);
 };
 
 export default {

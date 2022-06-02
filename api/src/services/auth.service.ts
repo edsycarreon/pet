@@ -46,7 +46,7 @@ const signUp = async (userPrams : IUser) : Promise<any> => {
     [firstName, lastName, email, password, gender, status, phoneNumber, displayPhoto])
     .catch(e => {throw e});
 
-    return helper.keysToCamel(result);
+    return helper.keysToCamel(result.rows[0]);
 };
 
 /**
@@ -67,7 +67,7 @@ const signUp = async (userPrams : IUser) : Promise<any> => {
     [email])
     .catch(e => {throw e});
 
-    return helper.keysToCamel(result.rows);
+    return helper.keysToCamel(result.rows[0]);
 };
 
 /**
@@ -88,7 +88,7 @@ const signUp = async (userPrams : IUser) : Promise<any> => {
     [refreshToken,id])
     .catch(e => {throw e});
 
-    return helper.keysToCamel(result.rows);
+    return helper.keysToCamel(result.rows[0]);
 };
 
 export default {

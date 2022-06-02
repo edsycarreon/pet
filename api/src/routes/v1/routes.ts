@@ -16,9 +16,9 @@ router.get("/ping", (_req : express.Request, res : express.Response) => {
 });
 
 // auth
-router.use("/api/auth", authRoute);
+router.use("/auth", authRoute);
 
 // user
-router.use("/api/users", userRoute);
+router.use("/persons", userRoute);
 
 export default router;
