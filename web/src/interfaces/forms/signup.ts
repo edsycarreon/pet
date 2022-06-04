@@ -22,6 +22,6 @@ export const schema = yup
       confirmPassword: yup
         .string()
         .required("Confirm Password is required")
-        .oneOf([yup.ref("password"), null], "Confirm Password does not match Password"),
+        .oneOf([yup.ref("password"), null], "Password and Confirm Password must match"),
     })
     .required();
