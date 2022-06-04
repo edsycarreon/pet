@@ -134,7 +134,8 @@ const SignIn = (props: AppProps): JSX.Element => {
                         id="password"
                         placeholder="Enter your password"
                         autoComplete="current-password"
-                        {...register("password")}
+                        name="password"
+                        register={register}
                       />
                       <p className="mt-2 text-sm text-red-600">
                         {errors.password?.message}

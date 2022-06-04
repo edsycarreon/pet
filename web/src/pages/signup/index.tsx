@@ -67,8 +67,8 @@ const SignUp = (props: AppProps): JSX.Element => {
                         id="password"
                         placeholder="Enter your password"
                         autoComplete="current-password"
-                        required
-                        {...register("password")}
+                        name="password"
+                        register={register}
                       />
                       <p className="mt-2 text-sm text-red-600">
                         {errors.password?.message}
@@ -78,20 +78,19 @@ const SignUp = (props: AppProps): JSX.Element => {
 
                   <div className="space-y-1">
                     <label
-                      htmlFor="password"
+                      htmlFor="confirmPassword"
                       className="block text-sm font-medium text-dark-main"
                     >
                       Confirm Password
                     </label>
-                    <div className="mt-1 mx-auto">
-                      <div className="w-full">
-                        <PasswordField
-                          id="confirm-password"
-                          placeholder="Confirm your password"
-                          autoComplete="current-password"
-                          {...register("confirmPassword")}
-                        />
-                      </div>
+                    <div className="mt-1">
+                      <PasswordField
+                        id="confirm-password"
+                        placeholder="Confirm your password"
+                        autoComplete="current-password"
+                        name="confirmPassword"
+                        register={register}
+                      />
                       <p className="mt-2 text-sm text-red-600">
                         {errors.confirmPassword?.message}
                       </p>
