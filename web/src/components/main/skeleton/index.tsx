@@ -1,4 +1,4 @@
-import { Fragment, SVGProps, useEffect, useState } from "react";
+import { Fragment, SVGProps, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   ChatAltIcon,
@@ -11,7 +11,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, Link as RouterLink } from "react-router-dom";
 import { GiJumpingDog } from "react-icons/gi";
 
 interface INavigationItems {
@@ -26,17 +26,17 @@ const classNames = (...classes: string[]) => {
 
 const Skeleton = () => {
   // Navigation object
-  const navigation = [
-    { name: "Dashboard", href: "#", icon: HomeIcon },
-    { name: "Matchmaker", href: "#", icon: UsersIcon },
-    { name: "Nearby", href: "#", icon: UserIcon },
-    { name: "Messages", href: "#", icon: ChatAltIcon },
+  const navigation: INavigationItems[] = [
+    { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
+    { name: "Matchmaker", href: "/matchmaker", icon: UsersIcon },
+    { name: "Nearby", href: "/nearby", icon: UserIcon },
+    { name: "Messages", href: "/messages", icon: ChatAltIcon },
     {
       name: "Statistics",
-      href: "#",
+      href: "/statistics",
       icon: ChartBarIcon,
     },
-    { name: "Settings", href: "#", icon: CogIcon },
+    { name: "Settings", href: "/settings", icon: CogIcon },
   ];
 
   // Navigation changes
@@ -106,9 +106,9 @@ const Skeleton = () => {
                     </div>
                     <nav className="mt-5 px-2 space-y-1">
                       {navigation.map((item, idx) => (
-                        <a
+                        <RouterLink
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className={classNames(
                             idx == active
                               ? "bg-slate-50 text-dark-main"
@@ -126,7 +126,7 @@ const Skeleton = () => {
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </RouterLink>
                       ))}
                     </nav>
                   </div>
@@ -170,9 +170,9 @@ const Skeleton = () => {
               </div>
               <nav className="mt-5 flex-1 px-2 space-y-1">
                 {navigation.map((item, idx) => (
-                  <a
+                  <RouterLink
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={classNames(
                       idx == active
                         ? "bg-slate-50 text-dark-main"
@@ -191,7 +191,7 @@ const Skeleton = () => {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </RouterLink>
                 ))}
               </nav>
             </div>
@@ -235,12 +235,9 @@ const Skeleton = () => {
                 </h1>
               </div>
               <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                {/* Replace with your content */}
-                <div className="py-4">
-                  <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-                </div>
-                {/* <Outlet /> */}
-                {/* /End replace */}
+                {/* Content */}
+                <Outlet />
+                {/* End Content */}
               </div>
             </div>
           </main>
