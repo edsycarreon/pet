@@ -113,7 +113,7 @@ const SignIn = (props: AppProps): JSX.Element => {
                         autoComplete="email"
                         placeholder="Enter your email address"
                         required
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-tertiary-main focus:border-tertiary-dark sm:text-sm"
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-secondary-main focus:border-secondary-700 sm:text-sm"
                         {...register("email")}
                       />
                       <p className="mt-2 text-sm text-red-600">
@@ -149,7 +149,7 @@ const SignIn = (props: AppProps): JSX.Element => {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className="h-4 w-4 text-tertiary-dark focus:ring-tertiary-main border-gray-300 rounded"
+                        className="h-4 w-4 text-secondary-700 focus:ring-secondary-main border-gray-300 rounded"
                       />
                       <label
                         htmlFor="remember-me"
@@ -162,7 +162,7 @@ const SignIn = (props: AppProps): JSX.Element => {
                     <div className="text-sm">
                       <a
                         href="#"
-                        className="font-medium text-tertiary-main hover:text-tertiary-dark"
+                        className="font-medium text-secondary-main hover:text-secondary-700"
                       >
                         Forgot your password?
                       </a>
@@ -172,7 +172,7 @@ const SignIn = (props: AppProps): JSX.Element => {
                   <div>
                     <button
                       type="submit"
-                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-primary bg-dark-main hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-tertiary-dark"
+                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-primary bg-dark-main hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-700"
                     >
                       Sign in
                     </button>
@@ -182,7 +182,7 @@ const SignIn = (props: AppProps): JSX.Element => {
               <div className="text-center mt-4 text-sm">
                 Don't have an account?
                 <Link to="/signup">
-                  <span className="ml-1 font-bold cursor-pointer text-tertiary-main hover:text-tertiary-dark">
+                  <span className="ml-1 font-bold cursor-pointer text-secondary-main hover:text-secondary-700">
                     Sign Up
                   </span>
                 </Link>

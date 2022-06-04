@@ -76,7 +76,7 @@ const Skeleton = () => {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <Dialog.Panel className="relative flex-1 flex flex-col max-w-xs w-full bg-tertiary-main">
+                <Dialog.Panel className="relative flex-1 flex flex-col max-w-xs w-full bg-secondary-main">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-300"
@@ -110,7 +110,7 @@ const Skeleton = () => {
                           key={item.name}
                           to={item.href}
                           className={classNames(
-                            idx == active
+                            idx === active
                               ? "bg-slate-50 text-dark-main"
                               : "text-white hover:bg-slate-50 hover:bg-opacity-60",
                             "group flex items-center px-2 py-2 text-base font-medium rounded-md"
@@ -118,7 +118,7 @@ const Skeleton = () => {
                         >
                           <item.icon
                             className={classNames(
-                              idx == active
+                              idx === active
                                 ? "bg-slate-50 text-dark-main"
                                 : "text-white",
                               "mr-3 flex-shrink-0 h-6 w-6"
@@ -130,7 +130,7 @@ const Skeleton = () => {
                       ))}
                     </nav>
                   </div>
-                  <div className="flex-shrink-0 flex border-t border-tertiary-dark p-4">
+                  <div className="flex-shrink-0 flex border-t border-secondary-700 p-4">
                     <a href="#" className="flex-shrink-0 group block">
                       <div className="flex items-center">
                         <div>
@@ -162,8 +162,8 @@ const Skeleton = () => {
 
         {/* Static sidebar for desktop */}
         <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-          {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex-1 flex flex-col min-h-0 bg-tertiary-main">
+          {/* Sidebar component */}
+          <div className="flex-1 flex flex-col min-h-0 bg-secondary-main">
             <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
               <div className="flex items-center flex-shrink-0 px-4">
                 <GiJumpingDog className="text-5xl text-white" />
@@ -174,7 +174,7 @@ const Skeleton = () => {
                     key={item.name}
                     to={item.href}
                     className={classNames(
-                      idx == active
+                      idx === active
                         ? "bg-slate-50 text-dark-main"
                         : "text-white hover:bg-slate-50 hover:bg-opacity-60",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
@@ -183,7 +183,7 @@ const Skeleton = () => {
                   >
                     <item.icon
                       className={classNames(
-                        idx == active
+                        idx === active
                           ? "bg-slate-50 text-dark-main"
                           : "text-white",
                         "mr-3 flex-shrink-0 h-6 w-6"
@@ -195,7 +195,7 @@ const Skeleton = () => {
                 ))}
               </nav>
             </div>
-            <div className="flex-shrink-0 flex border-t border-tertiary-dark p-4">
+            <div className="flex-shrink-0 flex border-t border-secondary-700 p-4">
               <a href="#" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
@@ -220,7 +220,7 @@ const Skeleton = () => {
           <div className="sticky top-0 z-10 md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 bg-gray-100">
             <button
               type="button"
-              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-tertiary-dark"
+              className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary-700"
               onClick={() => setSidebarOpen(true)}
             >
               <span className="sr-only">Open sidebar</span>
