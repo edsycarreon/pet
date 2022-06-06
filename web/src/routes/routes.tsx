@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Skeleton from "../components/main/skeleton";
+import PetProfile from "../pages/pet-profile";
 import Dashboard from "../pages/main/dashboard";
 import Matchmaker from "../pages/main/matchmaker";
 import Messages from "../pages/main/messages";
@@ -23,6 +24,7 @@ const PageRouter = () => {
           <Route path="/messages" element={<Messages />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/pet/:id" element={<PetProfile />} />
         </Route>
 
         <Route path="*" element={<p>404 Not Found</p>} />
