@@ -18,23 +18,29 @@ const PetInterests = ({ photos }: IPets): JSX.Element => {
         <section className="overflow-hidden text-gray-700 border-t">
           <div className="container px-3 py-2 mx-auto lg:px-3">
             <div className="flex flex-wrap -m-1 md:-m-2">
-              {photos.map((photo) => {
-                return (
-                  <div className="flex flex-wrap w-1/3">
-                    <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-105 z-10 cursor-pointer">
-                      <img
-                        onClick={() => {
-                          setImage({ ...photo });
-                          setShow(true);
-                        }}
-                        alt={photo.title}
-                        className="block object-cover object-center w-full h-full rounded-lg"
-                        src={photo.mediaUrl}
-                      />
+              {photos.length > 0 ? (
+                photos.map((photo) => {
+                  return (
+                    <div className="flex flex-wrap w-1/3">
+                      <div className="w-full p-1 md:p-2 transform transition duration-500 hover:scale-105 z-10 cursor-pointer">
+                        <img
+                          onClick={() => {
+                            setImage({ ...photo });
+                            setShow(true);
+                          }}
+                          alt={photo.title}
+                          className="block object-cover object-center w-full h-full rounded-lg"
+                          src={photo.mediaUrl}
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <div className="flex justify-center items-center h-72 w-full">
+                  <p className="text-3xl text-gray-400">No photos</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
