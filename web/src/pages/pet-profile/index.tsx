@@ -2,14 +2,32 @@ import { useParams } from "react-router-dom";
 import PetBio from "./components/bio";
 import PetInformation from "./components/information";
 import PetInterests from "./components/interests";
-import { pets, IPets } from "../../data";
+import { pets } from "../../data";
+import { IPets } from "../../interfaces/pets.interface";
+import { useQuery } from "react-query";
+import { getPetByID } from "../../services/requests";
 
 const PetProfile = (): JSX.Element => {
-  const { id } = useParams();
+  let { id } = useParams();
   console.log("ID", id);
 
+  // let ID = "";
+
+  const { data, status, isLoading, isIdle, error } = useQuery<IPets, Error>(
+    ["pet", id],
+    () => getPetByID(id || "")
+  );
+
+  if (isLoading || isIdle) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>{error!.message}</h1>;
+  }
+
   // Simulate API call
-  const data: IPets = pets.filter((_, idx) => parseInt(id || "") == idx)[0];
+  // const data: IPets = pets.filter((_, idx) => parseInt(id || "") == idx)[0];
 
   console.log(data);
   return (

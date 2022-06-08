@@ -1,4 +1,4 @@
-import { IPets } from "../../../../data";
+import { IPets } from "../../../../interfaces/pets.interface";
 
 const PetInformation = ({
   name,

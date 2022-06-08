@@ -1,7 +1,7 @@
 import { Link as RouterLink } from "react-router-dom";
 
 interface IPetCard {
-  id: number;
+  petId: number;
   displayPhoto: string;
   name: string;
   age: number;
@@ -10,7 +10,7 @@ interface IPetCard {
 }
 
 const PetCards = ({
-  id,
+  petId,
   displayPhoto,
   name,
   age,
@@ -19,7 +19,7 @@ const PetCards = ({
 }: IPetCard): JSX.Element => {
   return (
     <>
-      <RouterLink to={`/pet/${id}`}>
+      <RouterLink to={`/pet/${petId}`}>
         <li className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 transform transition duration-500 hover:scale-105 z-10 cursor-pointer">
           <div className="flex-1 flex flex-col p-8">
             <img
