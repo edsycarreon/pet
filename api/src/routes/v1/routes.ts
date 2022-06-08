@@ -3,6 +3,7 @@ import express from "express";
 // routes
 import authRoute from "./auth.routes";
 import userRoute from "./user.routes";
+import petRoute from "./pet.routes";
 
 const router = express.Router();
 
@@ -20,5 +21,8 @@ router.use("/auth", authRoute);
 
 // user
 router.use("/persons", userRoute);
+
+// pets
+router.use("/pets", petRoute);
 
 export default router;
