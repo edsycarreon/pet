@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import PageRouter from "./routes/routes";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -12,7 +10,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <PageRouter />
-        <ReactQueryDevtools />
+        {/* <ReactQueryDevtools /> */}
       </QueryClientProvider>
     </>
   );
