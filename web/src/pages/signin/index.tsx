@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { ISignIn, schema } from "../../interfaces/forms/signin";
 import { GiJumpingDog } from "react-icons/gi";
 import PasswordField from "../../components/custom/password-field";
+import { useMutation, useQueryClient } from "react-query";
+import authRequests from "../../services/auth.requests";
+import { useNavigate } from "react-router-dom";
 
 type AppProps = {};
 const SignIn = (props: AppProps): JSX.Element => {
@@ -12,7 +15,29 @@ const SignIn = (props: AppProps): JSX.Element => {
     handleSubmit,
     formState: { errors },
   } = useForm<ISignIn>({ mode: "onBlur", resolver: yupResolver(schema) });
-  const onSubmit: SubmitHandler<ISignIn> = (data) => console.log(data);
+
+  // history
+  const navigate = useNavigate();
+
+  // Mutations
+  const mutation = useMutation(authRequests.SignIn, {
+    onSuccess: (data: Response) => {
+      console.log("data", data);
+      navigate("/dashboard");
+    },
+    onError: (error: Response) => {
+      console.log("error", error);
+      if (error.status === 401) {
+        alert("Invalid credentials");
+      }
+    },
+  });
+
+  const onSubmit: SubmitHandler<ISignIn> = (data) => {
+    // Call Request
+    mutation.mutate(data);
+  };
+
   return (
     <>
       {/* Main */}
