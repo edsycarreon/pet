@@ -34,7 +34,7 @@ import userService from "../services/user.service";
  * @param {string} body.phoneNumber
  * @param {string} body.displayPhoto
  */
-const signUp = async(req : express.Request, res : express.Response) => {
+const signUp : RequestHandler = async(req, res) => {
     //Get request body
     const userParams : IUser = req.body;
 
@@ -78,7 +78,7 @@ const signUp = async(req : express.Request, res : express.Response) => {
  * @param {string} body.email
  * @param {string} body.password
  */
- const signIn = async(req : express.Request, res : express.Response) => {
+ const signIn : RequestHandler = async(req, res) => {
     //Get request body
     const userParams : IUser = req.body;
 

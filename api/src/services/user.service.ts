@@ -26,7 +26,7 @@ const getUsers = async () : Promise<any> => {
     )
     .catch(e => {throw e});
 
-    return helper.keysToCamel(result);
+    return helper.keysToCamel(result.rows);
 };
 
 /**

@@ -1,4 +1,4 @@
-import express from "express";
+import express, { RequestHandler } from "express";
 
 // Services
 import userService  from "../services/user.service";
@@ -21,7 +21,7 @@ import {
  * getUsers()
  * fetch all users
  */
-const getUsers = async (_req : express.Request, res : express.Response, _next : express.NextFunction) => {
+const getUsers : RequestHandler = async (req, res) => {
 
     let status = new ResStatus();
 
@@ -33,13 +33,11 @@ const getUsers = async (_req : express.Request, res : express.Response, _next : 
         res.send(status);
     });
 
-    const {rows} = users;
-
-    if(rows.length <= 0) {
+    if(users.length <= 0) {
         res.status(StatusCodes.NOT_FOUND);
         status = helper.getStatusCode(StatusCodes.NOT_FOUND.toString());
     }
-    const resUser = new Res(status, rows, 'users');
+    const resUser = new Res(status, users, 'users');
     res.send(resUser);
 };
 
@@ -48,7 +46,7 @@ const getUsers = async (_req : express.Request, res : express.Response, _next : 
  * fetch a user by its ID
  * @param {int} id
  */
-const getUserByID = async (req : express.Request, res : express.Response) => {
+const getUserByID : RequestHandler = async (req, res) => {
 
     const { id } = req.params;
 
